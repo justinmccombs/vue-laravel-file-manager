@@ -2,7 +2,7 @@
     <div class="fm-navbar mb-3">
         <div class="row justify-content-between">
             <div class="col-auto">
-                <div class="btn-group" role="group">
+                <div class="btn-group is-hidden-mobile" role="group">
                     <button type="button" class="btn btn-secondary"
                             v-bind:disabled="backDisabled"
                             v-bind:title="lang.btn.back"
@@ -22,11 +22,6 @@
                     </button>
                 </div>
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
-                            v-on:click="showModal('NewFile')"
-                            v-bind:title="lang.btn.file">
-                        <i class="far fa-file"/>
-                    </button>
                     <button type="button" class="btn btn-secondary"
                             v-on:click="showModal('NewFolder')"
                             v-bind:title="lang.btn.folder">
@@ -51,7 +46,7 @@
                         <i class="fas fa-trash-alt"/>
                     </button>
                 </div>
-                <div class="btn-group" role="group">
+                <div class="btn-group is-hidden-tablet is-hidden-mobile" role="group">
                     <button type="button" class="btn btn-secondary"
                             v-bind:disabled="!isAnyItemSelected"
                             v-bind:title="lang.btn.copy"
@@ -69,13 +64,6 @@
                             v-bind:title="lang.btn.paste"
                             v-on:click="paste">
                         <i class="fas fa-paste"/>
-                    </button>
-                </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
-                            v-bind:title="lang.btn.hidden"
-                            v-on:click="toggleHidden">
-                        <i class="fas" v-bind:class="[hiddenFiles ? 'fa-eye': 'fa-eye-slash']"/>
                     </button>
                 </div>
             </div>
@@ -100,13 +88,6 @@
                             v-bind:class="{ active: fullScreen }"
                             v-on:click="screenToggle">
                         <i class="fas fa-expand-arrows-alt"/>
-                    </button>
-                </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
-                            v-bind:title="lang.btn.about"
-                            v-on:click="showModal('About')">
-                        <i class="fas fa-question"/>
                     </button>
                 </div>
             </div>
